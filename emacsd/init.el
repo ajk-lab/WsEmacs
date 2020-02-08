@@ -2,7 +2,7 @@
 ; ==== .emacs.d/init.el ====
 
 
-; ==== User defined config. ====
+; ==== User defined config.
   ; ==== Add path to enviornment ====
       (defun eshell-mode-hook-func ()
         ( setq eshell-path-env (concat "/usr/local/bin:" eshell-path-env))
@@ -87,29 +87,48 @@
     ;
   ;  
 
+; ==== R programming ====
+   ; Set default R version, (i.e. the one launched by typing M-x R <RET>)
+    (setq inferior-R-program-name "/usr/local/bin/R")
+    
+    (require 'auto-complete)
+    (require 'auto-complete-config)
+    (ac-config-default)
+    ;;(global-auto-complete-mode t)
+    
+    (require 'ess)
+    (require 'ess-smart-underscore)
+    ;;(setq ess-use-auto-complete 'script-only)
+    (setq ess-use-auto-complete t)
+    
+    ;;(define-key ac-completing-map (kbd "M-h") 'ac-quick-help)
+;
+
 ; -------------------------------------------------
 
 
 
 ; ==== #Standard config. using Emacs standard gui interface  ==== 
-  (custom-set-variables
-      ;custom-set-variables was added by Custom.
-      ;If you edit it by hand, you could mess it up, so be careful.
-      ;Your init file should contain only one such instance.
-      ;If there is more than one, they won't work right.
-        '(display-line-numbers-type (quote relative))
-        
-        '(package-selected-packages
-              (
-                quote (elpy el-get jedi-direx jedi material-theme better-defaults)
-              )
-         )
-          
-       '(scroll-bar-mode nil)
-       '(tool-bar-mode nil)
-  )
+  
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(display-line-numbers-type (quote relative))
+ '(package-selected-packages
+   (quote
+    (fzf evil auto-complete-distel auto-complete-clang-async auto-complete-clang auto-complete-chunk org-ref ess-smart-underscore ess-smart-equals ess-view ess-R-data-view ess elpy el-get jedi-direx jedi material-theme better-defaults)))
+ '(scroll-bar-mode nil)
+ '(tool-bar-mode nil))
       
-  (custom-set-faces)
+  
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
     ;custom-set-faces was added by Custom.
     ;If you edit it by hand, you could mess it up, so be careful.
     ;Your init file should contain only one such instance.
