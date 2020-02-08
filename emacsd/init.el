@@ -2,7 +2,7 @@
 ; ==== .emacs.d/init.el ====
 
 
-; ==== User defined config.
+; ==== User defined config. ====
   ; ==== Add path to enviornment ====
       (defun eshell-mode-hook-func ()
         ( setq eshell-path-env (concat "/usr/local/bin:" eshell-path-env))
